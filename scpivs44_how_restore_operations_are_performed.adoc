@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_how_restore_operations_are_performed.html 
+keywords:  
+summary: 'En el caso de los entornos VMFS, el plugin de SnapCenter para VMware vSphere utiliza operaciones de clonado y montaje con Storage VMotion para realizar las operaciones de restauración. En los entornos NFS, el plugin utiliza Single File SnapRestore (SFSR) nativo de ONTAP para proporcionar una mayor eficacia para la mayoría de las operaciones de restauración.' 
+---
+= Cómo se realizan las operaciones de restauración
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+En el caso de los entornos VMFS, el plugin de SnapCenter para VMware vSphere utiliza operaciones de clonado y montaje con Storage VMotion para realizar las operaciones de restauración. En los entornos NFS, el plugin utiliza Single File SnapRestore (SFSR) nativo de ONTAP para proporcionar una mayor eficacia para la mayoría de las operaciones de restauración. En la siguiente tabla, se enumera cómo se ejecutan las operaciones de restauración.
+
+|===
+| Operaciones de restauración | Realizadas mediante ONTAP SFSR en entornos NFS | Realizadas mediante clonado y montaje con Storage VMotion en entornos NFS | Realizadas mediante clonado y montaje con Storage VMotion en entornos VMFS 
+
+
+| Restauración de máquinas virtuales y VMDK a partir de backups primarios | Sí |  | Sí 
+
+
+| Restauración de máquinas virtuales y VMDK a partir de backups secundarios | Sí |  | Sí 
+
+
+| Restauración de máquinas virtuales y VMDK eliminados a partir de backups primarios | Sí |  | Sí 
+
+
+| Restauración de máquinas virtuales y VMDK eliminados a partir de backups secundarios |  | Sí | Sí 
+
+
+| Restauración de máquinas virtuales y VMDK a partir de backups primarios consistentes con la máquina virtual | Sí |  | Sí 
+
+
+| Restauración de máquinas virtuales y VMDK a partir de backups secundarios consistentes con la máquina virtual |  | Sí | Sí 
+|===
+Las operaciones de restauración de archivos invitados se realizan mediante operaciones de clonado y montaje (no con Storage VMotion) en entornos NFS y VMFS.
+
+
+IMPORTANT: Durante una operación de restauración, es posible que se encuentre con el error `Host unresolved volumes is null` o. `Exception while calling pre-restore on SCV….Error mounting cloned LUN as datastore…` Esto ocurre cuando el plugin de VMware de SnapCenter intenta volver a firmar el clon. Debido a las restricciones de VMware, el complemento VMware de SnapCenter no puede controlar el valor de repetición de firma automática en configuraciones de ESXi avanzadas.
+
+Para obtener más información sobre el error, consulte {link-with-subraya}[KB: Se produce un error en la clonación de SCV o las restauraciones con el mensaje de error "Host unresolved Volumes is null].

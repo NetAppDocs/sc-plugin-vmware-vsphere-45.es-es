@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_multiple_vms_and_datastores_to_a_resource_group.html 
+keywords:  
+summary: Puede añadir varias máquinas virtuales y almacenes de datos a cualquier grupo de recursos existente mediante el asistente SnapCenter VMware vSphere Web Client Edit Resource Group. 
+---
+= Añadir varias máquinas virtuales y almacenes de datos a un grupo de recursos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede añadir varias máquinas virtuales y almacenes de datos a cualquier grupo de recursos existente mediante el asistente SnapCenter VMware vSphere Web Client Edit Resource Group.
+
+.Acerca de esta tarea
+Puede añadir almacenes de datos SAN y NAS, pero no VSAN o VVOL.
+
+.Pasos
+. En el panel de navegación izquierdo del cliente web de VMware vSphere, haga clic en *Resource Groups*, después seleccione un grupo de recursos y, a continuación, haga clic en image:scpivs44_image39.png["Error: Falta la imagen gráfica"] *Editar grupo de recursos* para iniciar el asistente.
+. En la página *recurso*, en la lista Available Entities, seleccione la máquina virtual o el almacén de datos que desee agregar al grupo de recursos y, a continuación, haga clic en *>* para mover su selección a la lista Selected Entities. Puede mover todas las entidades disponibles haciendo clic en *>>*.
++
+image:scpivs44_image19.png["Error: Falta la imagen gráfica"]
+
++
+De forma predeterminada, la lista Available Entities muestra el objeto del centro de datos. Puede hacer clic en un almacén de datos para ver las máquinas virtuales incluidas en él y añadirlas al grupo de recursos.
+
++
+Al hacer clic en *Siguiente*, el sistema comprueba primero que SnapCenter gestiona y es compatible con el almacenamiento en el que se encuentran las VM o almacenes de datos seleccionados. Si el mensaje `Some entities are not SnapCenter compatible` Cuando se muestre, la máquina virtual o el almacén de datos seleccionados no es compatible con SnapCenter. Consulte link:scpivs44_create_resource_groups_for_vms_and_datastores.html#manage-compatibility-check-failures["Gestione los fallos de comprobación de compatibilidad"] si quiere más información.
+
+. Repita el paso 2 para cada máquina virtual o almacén de datos que desee añadir.
+. Haga clic en *Siguiente* hasta que llegue a la página *Resumen* y, a continuación, revise el resumen y haga clic en *Finalizar*.
+

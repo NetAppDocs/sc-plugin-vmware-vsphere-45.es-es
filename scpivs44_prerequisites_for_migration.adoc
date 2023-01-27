@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_prerequisites_for_migration.html 
+keywords:  
+summary: Antes de migrar al plugin de SnapCenter para VMware vSphere, asegúrese de que se hayan completado todos los requisitos previos. 
+---
+= Requisitos previos para la migración
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Antes de migrar al plugin de SnapCenter para VMware vSphere, asegúrese de que se hayan completado todos los requisitos previos.
+
+* Debe ejecutar SnapCenter Server 4.2 o una versión posterior.
+* Se deben usar credenciales de administrador.
+* El dispositivo virtual del plugin de SnapCenter para VMware vSphere debe ponerse en marcha con el plugin de VMware de SnapCenter habilitado y registrado en vCenter.
+* En la consola del plugin de VMware de SnapCenter, el estado del plugin de SnapCenter para VMware vSphere debe ser "conectado".
+* Debe haber creado una credencial Run as de tipo Linux con la cuenta que se especificó durante la implementación del plugin de VMware de SnapCenter.
+* Se deben eliminar todas las sesiones de restauración de archivos invitados.
+* Los hosts SnapCenter deben configurarse con direcciones IP, no con nombres de dominio completos (FQDN).
++
+En un entorno de modo vinculado, debe migrar todos los nodos vinculados a la vez.
+
+* Los nombres de las máquinas virtuales de almacenamiento deben resolver las LIF de administración.Si ha agregado `etc` Entradas de host para los nombres de máquinas virtuales de almacenamiento en SnapCenter, debe verificar que también se puedan resolver desde el dispositivo virtual.
+

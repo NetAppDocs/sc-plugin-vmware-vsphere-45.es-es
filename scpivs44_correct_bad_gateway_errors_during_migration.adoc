@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_correct_bad_gateway_errors_during_migration.html 
+keywords:  
+summary: 'Es posible que aparezca un error "puerta de enlace incorrecta" cuando se añaden archivos y otro contenido manualmente al plugin de SnapCenter para VMware vSphere y, después, se migra.' 
+---
+= Corrija los errores de “puerta de enlace incorrecta” durante la migración
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Hay varias razones por las que puede encontrar un error de “puerta de enlace incorrecta”.
+
+
+
+== Situación 1
+
+Añadió manualmente archivos u otro contenido al plugin de SnapCenter para VMware vSphere y, a continuación, intentó migrar. En este escenario, no hay suficiente espacio en el dispositivo para el proceso de migración.
+
+Para corregir este error, elimine los archivos agregados manualmente.
+
+
+
+== Situación 2
+
+La conexión del plugin de SnapCenter para VMware vSphere se detuvo, o el servicio se detuvo durante la migración.
+
+El estado de la conexión del plugin de SnapCenter para VMware vSphere debe "estar conectado" durante el proceso de migración. También puede actualizar manualmente la configuración del tiempo de espera en el dispositivo virtual.
